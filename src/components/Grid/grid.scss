@@ -1,0 +1,42 @@
+// ----- GENERAL PROPERTIES ----- //
+@font-face {
+  font-family: 'Clear Sans';
+  src: url("./../../assets/fonts/ClearSans-Bold.ttf");
+}
+
+
+// ----- GRID PROPERTIES ----- //
+.grid {
+  width: 350px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #FFF;
+}
+
+
+// ----- ROW PROPERTIES ----- //
+.grid__row {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+
+// ----- SQUARE PROPERTIES ----- //
+.row__square {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid #D3D6DA;
+}
+
+
+// ----- LETTER PROPERTIES ----- //
+.square__letter {
+  font-family: 'Clear Sans';
+  font-size: 32px;
+  text-transform: uppercase;
+}
