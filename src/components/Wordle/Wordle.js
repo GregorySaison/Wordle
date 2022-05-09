@@ -1,7 +1,7 @@
-// ----- IMPORT ----- //
-import { useEffect, useReducer } from "react";
-import { Context } from "./../../helpers/context"; // Import d'un contexte crée
-import { answerReducer } from "../../helpers/answerReducer";
+// ----- IMPORTS ----- //
+import { useEffect, useReducer } from "react"; // Import des Hooks permettant la création et la manipulation du composant
+import { Context, initialState } from "./../../helpers/context"; // Import du contexte crée et de ses données
+import { answerReducer } from "../../helpers/answerReducer"; // Import du Reducer
 
 import "./wordle.scss";
 
@@ -26,8 +26,9 @@ function Wordle() {
 
   return (
     // Je définis mon contexte comme état de mon composant et je lui donne la valeur de answer...
-    <Context.Provider value={{ answer }}>
+    <Context.Provider value={{ ...initialState, answer }}>
       <div className="wrapper">
+        mot secret: {initialState.secretWord}
         <Grid />
       </div>
     </Context.Provider>

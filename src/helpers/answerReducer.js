@@ -1,14 +1,18 @@
+// ----- IMPORT ----- //
+import { initialState } from "./context";
+import { handleAnswerValidation } from "./handleAnswerValidation";
+import { handleKeyDown } from "./handleKeyDown";
+import { handleRemoveLetters } from "./handleRemoveLetters";
+
+// ----- CREATION LOGIQUE DE REPONSE AUX ACTIONS DE L'UTILISATEUR ----- //
 export const answerReducer = (userInput, key) => {
-  const answer = `${userInput}${key}`;
-  console.log(answer);
-
   if (key === "Backspace") {
-    return userInput.slice(0, -1);
+    return handleRemoveLetters(userInput);
   }
 
-  if (answer.length < 6) {
-    return answer;
-  } else {
-    return userInput;
+  if (key === "Enter") {
+    return handleAnswerValidation(userInput, initialState.secretWord);
   }
+
+  return handleKeyDown(userInput, key, initialState.secretWord);
 };
